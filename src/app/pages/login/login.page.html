@@ -1,0 +1,20 @@
+<ion-header no-border >
+  <ion-toolbar color="success">
+    <ion-title>Faça o login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item class="ion-margin" >
+    <ion-input type="email" placeholder="email" [(ngModel)] = "email_address" ></ion-input>
+  </ion-item >
+  <ion-item class="ion-margin">
+    <ion-input type="password" placeholder="password" [(ngModel)] = "password"></ion-input>
+  </ion-item>
+  <ion-button expand="full" class="ion-margin" color="success" (click)= "tryLogin()" >Login</ion-button>
+</ion-list>
+<p class=" info-1 ion-padding">
+  if u not have account, click <span (click)= "openRegister()"> register now</span>
+</p>
+</ion-content>

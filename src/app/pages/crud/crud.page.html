@@ -1,0 +1,44 @@
+<ion-header no-border>
+  <ion-toolbar color="success">
+    <ion-title>Crud Page</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="backHome()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="ion-margin" >
+      <ion-input type="text" placeholder="your name" [(ngModel)] = "your_name" ></ion-input>
+    </ion-item >
+    <ion-item class="ion-margin">
+      <ion-label style="color:#999">Gender</ion-label>
+      <ion-select inteface="popover" [(ngModel)]="gender">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="ion-margin">
+      <ion-label style="color:#999" position="stacked">Birthday date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="bday_date"></ion-datetime>
+    </ion-item>
+    <ion-item class="ion-margin" >     
+      <ion-input type="email" placeholder="email" *ngIf="id == 0" [(ngModel)] = "email_address" ></ion-input>
+      <ion-input type="email" placeholder="email" *ngIf="id != 0" readonly="true"  [(ngModel)] = "email_address" ></ion-input>
+    </ion-item >
+    <ion-item class="ion-margin">
+      <ion-input type="password" placeholder="password" [(ngModel)] = "password"></ion-input>
+    </ion-item> 
+    <ion-item class="ion-margin">
+      <ion-input type="password" placeholder="confirm password" [(ngModel)] = "confirm_pass"></ion-input>
+    </ion-item>
+    <ion-button expand="full" class="ion-margin" *ngIf="id == 0" color="success" (click)= "crudAction('register')" [disabled] = "disableButton">Create</ion-button>
+    <ion-button expand="full" class="ion-margin" *ngIf="id != 0" color="success" (click)= "crudAction('update')" [disabled] = "disableButton">Update</ion-button>
+
+    <p style="font-size:14px; color:#999" class="ion-padding" *ngIf="id != 0">
+     if you no change password, let blank....</p>
+  </ion-list>
+</ion-content>
